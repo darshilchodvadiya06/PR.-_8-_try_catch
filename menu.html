@@ -1,0 +1,347 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row pt-5 pb-5">
+        <div class="col-md-1 mx-1">
+            <button onclick="viewAllRecord()" class="btn btn-primary" style="padding: 5px 43px;">All</button>
+        </div>
+        <div class="col-md-1 mx-1">
+            <button onclick="lenovoData()" class="btn btn-primary" style="padding: 5px 26px;">Lenovo</button>
+        </div>
+        <div class="col-md-1 mx-1">
+            <button onclick="lgData()" class="btn btn-primary" style="padding: 5px 43px;">LG</button>
+        </div>
+        <div class="col-md-1 mx-1">
+            <button onclick="dellData()" class="btn btn-primary" style="padding: 5px 38px;">Dell</button>
+        </div>
+        <div class="col-md-1 mx-1">
+            <button onclick="hpData()" class="btn btn-primary" style="padding: 5px 41px;">HP</button>
+        </div>
+        <div class="col-md-1 mx-1">
+            <button onclick="macData()" class="btn btn-primary" style="padding: 5px 43px;">Mac</button>
+        </div>
+    </div>
+    
+    <div class="row" id="allrecord">
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    let data = [
+        // lenovo
+        {
+            name: "Lenovo IdeaPad Slim 3 Intel Core i3-1115G4 11th Gen 15.6' (39.62cm) FHD Laptop (8GB/256GB SSD/Win 11/Office 2021/2 Year Warranty/3 Month Game Pass/Platinum Grey/1.7Kg), 81X800LCIN",
+            price: "Rs. 33,831",
+            image: "images/51ZcXcqT-0L._AC_UY218_ (1).jpg",
+            category: "lenovo"
+        },
+        {
+            name: "Lenovo E41-55 Laptop<br>(AMD Athlon Pro 3045B/ 4GB RAM/ 1TB HDD/DOS/AMD Radeon Graphics/ 14 Inches/ 1 Year Warranty)<br>Black",
+            price: "Rs. 78,654",
+            image: "images/71PbpgP2-ZL._AC_UY218_.jpg",
+            category: "lenovo"
+        },
+        {
+            name: "Lenovo V14-IGL Laptop <br>Intel Celeron N4020/4GB DDR4 RAM/256GB SSD/DOS/14.0 HD/Intel UHD Graphics 600<br>1 Year Warranty",
+            price: "Rs. 19,999",
+            image: "images/51ePO0hLeGL._AC_UY218_.jpg",
+            category: "lenovo"
+        },
+        {
+            name: "Lenovo IdeaPad D330 Intel Celeron N4020 10.1' (25cm) HD IPS Detachable 2-in-1 Laptop (4GB/128GB eMMC/Windows 10/1 Yr Warranty/Mineral Grey/1.1Kg), 82H0001YIN",
+            price: "Rs. 20,990",
+            image: "images/61q6x-ll5FL._AC_UL400_.jpg",
+            category: "lenovo"
+        },
+        {
+            name: "Lenovo ThinkBook 15 AMD Ryzen 5 5500U 15.6' (39.62cm) FHD 220 nits Antiglare Thin and Light Laptop (8GB/512GB SSD/Windows 11/MS Office/Mineral Grey/1.7 Kg), 21A4A09UIH",
+            price: "Rs. 45,490",
+            image: "images/61Dh8r-jRHL._AC_UY218_.jpg",
+            category: "lenovo"
+        },
+        {
+            name: "Lenovo IdeaPad Flex 5 11th Gen Intel Core i3 14 FHD 2-in-1 Convertible Laptop (8GB/512GB SDD/Windows 11/Office 2021/Backlit/Fingerprint Reader/3months Xbox",
+            price: "Rs. 62,650",
+            image: "images/61ta6vDkCRL._SX522_.jpg",
+            category: "lenovo"
+        },
+
+        // lg
+        {
+            name: "HP Envy x360 AMD Ryzen 5 4500U 13.3 inches(34cm) Convertible Touchscreen FHD Laptop (8GB/512GB SSD/Windows 11 Home/MS Office/Night Fall Black/1.32kg)",
+            price: "Rs. 1,03,400",
+            image: "images/lg 1.webp",
+            category: "lg"
+        },
+        {
+            name: "(Renewed) HP 6460b Probook 14 Inch Screen Laptop (2nd Gen Intel Core i5 - 2410m /8 GB/1000 GB HDD/Windows 7 Pro), Copper",
+            price: "Rs. 40,000",
+            image: "images/lg 2.webp",
+            category: "lg"
+        },
+        {
+            name: "Infinix Intel IN Book X1 Pro Core i7 10th Gen - 16 GB/512 GB SSD/Windows 11 Home XL12 Thin and Light Laptop (14 inches, Noble Red, 1.48 kg)",
+            price: "Rs. 45,790",
+            image: "images/lg 6.webp",
+            category: "lg"
+        },
+        {
+            name: "Fujitsu UH-X 12th Gen Intel Evo Core i5 13.3 inch(33cm) FHD 400Nits Thin & Light Laptop (16GB/512GB SSD)/Windows11/Office/Iris Xe Graphics/Black/878gm - 4ZR1J37875 w/Sleeve",
+            price: "Rs. 69,990",
+            image: "images/lg 4.webp",
+            category: "lg"
+        },
+        {
+            name: "Samsung Galaxy Book2 Intel 12th Gen core i5 39.6cm (15.6') FHD LED Thin & Light Laptop (16 GB/512 GB SSD/Windows 11/MS Office/Backlit Keyboard/Finger Print Reader/Silver/1.55Kg), NP750XED-KC3IN",
+            price: "Rs. 88,990",
+            image: "images/lg 5.webp",
+            category: "lg"
+        },
+        {
+            name: "(Renewed) HP 6460b Probook 14 Inch Screen Laptop (2nd Gen Intel Core i5 - 2410m /8 GB/1000 GB HDD/Windows 7 Pro), Copper<br><br> ₹40,000 (53% off)",
+            price: "Rs. 18,619",
+            image: "images/lg 3.webp",
+            category: "lg"
+        },
+
+        // dell
+        {
+            name: "Dell Inspiron 5518 Laptop , Intel Core i5-11320H, 8GB, 512GB, Win 11+MSO'21, 15.6' (39.64Cms) FHD WVA AG 250 nits, NVIDIA MX450 2GB GDDR5, Platinum Silver (D560812WIN9S, 1.64Kgs)",
+            price: "Rs. 64,644",
+            image: "images/dell 1.webp",
+            category: "dell"
+        },
+        {
+            name: "(Renewed) DELL Latitude 5490 Core i5 7th Gen Laptop , 8 GB RAM, 256GB SSD, Intel HD Graphics, 14 inch (36.83 cms) HD Screen, Windows 11 (Upgraded), MS Office, Black, Slim",
+            price: "Rs. 18,674",
+            image: "images/dell 2.webp",
+            category: "dell"
+        },
+        {
+            name: "Dell Vostro 3425 Laptop , AMD R3-5425U, 8GB DDR4, 256GB SSD, Win 11 + MSO'21, 14.0' (35.56 Cms) FHD WVA AG 250 nits, 15 Month McAfee, Carbon Black, 1.48Kgs<br>₹50,837 (26% off)",
+            price: "Rs. 50,837",
+            image: "images/dell 3.webp",
+            category: "dell"
+        },
+        {
+            name: "Dell Inspiron 3511 Laptop , Intel i3-1115G4, 8GB DDR4 & 512GB SSD, Windows 11 + MSO'21, 15.6' (39.62Cms) FHD WVA AG, 15 Month McAfee, Carbon Black, 1.8Kgs<br> ₹85,000 (51% off)",
+            price: "Rs. 41,500",
+            image: "images/dell 4.webp",
+            category: "dell"
+        },
+        {
+            name: "Dell Inspiron 14-inch 2-in-1 Laptop (35.56 cms) | Windows 11, MS Office 2021 | Intel i3-1215U | 8GB Memory, 512GB SSD | FHD Screen, WVA TrueLife Touch 250 nits | 7420 - Platinum Silver (D560774WIN9S)",
+            price: "Rs. 57,644",
+            image: "images/dell 5.webp",
+            category: "dell"
+        },
+        {
+            name: "Dell Gaming G15 5525, AMD R5-6600H, 16GB, 512GB SSD, RTX 3050 (4GB GDDR6), 15.6' (39.62Cms) FHD WVA AG 120Hz 250 nits, Windows 11 + MSO'21, 15 Month Mcafee, 2.51Kgs",
+            price: "Rs. 1,09,707",
+            image: "images/dell 6.webp",
+            category: "dell"
+        },
+        
+        // hp
+        {
+            name: "HP Omen 12th Gen Intel Core i7-12800HX 17.3 inch(43.9cm) QHD Gaming Laptop (32GB RAM/1TB SSD/RTX 3070Ti 8GB Graphics/165Hz/3ms Response Time/Win 11/MSO 2021/Backlit KB/B&O/Alexa/Xbox",
+            price: "Rs. 1,93,999",
+            image: "images/hp 1.webp",
+            category: "hp"
+        },
+        {
+            name: "HP 15s,11th Gen Intel Core i3-1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop /Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers/MS Office 2021/1.69 Kg, 15s-fq2673TU",
+            price: "Rs. 40,990",
+            image: "images/hp 2.webp",
+            category: "hp"
+        },
+        {
+            name: "HP Pavilion 14 12th Gen Intel Core i5 16GB RAM/512GB SSD 14 inch(35.6cm) IPS Micro-Edge FHD Touch Laptop /Intel UHD Graphics/B&O/Win 11/Alexa Built-in/Backlit KB/FPR/MSO/Fast Charge/Silver,14-",
+            price: "Rs. 68,990",
+            image: "images/hp 3.webp",
+            category: "hp"
+        },
+        {
+            name: "HP 15s, 12th Gen Intel Core i5 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop /Intel Iris Xe Graphics/Alexa/Dual Speakers/Win 11/MSO 2021/1.41 Kg, 15s- fq5111TU",
+            price: "Rs. 58,247",
+            image: "images/hp 4.webp",
+            category: "hp"
+        },
+        {
+            name: "HP 247 G8 Laptop PC with AMD Ryzen 3 3250U/8 GB DDR4-3200 MHz RAM/512 GB PCIe NVMe SSD/AMD Radeon™ Graphics/35.6 cm (14' inch)/Windows 11/Black/1 Year Onsite Warranty",
+            price: "Rs. 28,999",
+            image: "images/hp 5.webp",
+            category: "hp"
+        },
+        {
+            name: "HP 15s,12th Gen Intel Core i3-1215U, 15.6 inch(39.6cm) FHD IPS Laptop (8GB RAM/512 GB SSD/Intel UHD Graphics/Win 11/Backlit Keyboard/Dual Speakers/MSO) 15s-fq5007TU",
+            price: "Rs. 56,261",
+            image: "images/hp 6.webp",
+            category: "hp"
+        },
+
+        // mac
+        {
+            name: "Apple 2022 MacBook Air Laptop with M2 chip: 34.46 cm (13.6-inch) Liquid Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera. Works with iPhone/iPad; Space Grey",
+            price: "Rs. 1,07,990",
+            image: "images/mac 1.jpg",
+            category: "mac"
+        },
+        {
+            name: "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; <br>Gold",
+            price: "Rs. 84,490",
+            image: "images/mac 2.jpg",
+            category: "mac"
+        },
+        {
+            name: "Apple 2022 MacBook Air Laptop with M2 chip: 34.46 cm (13.6-inch) Liquid Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera. Works with iPhone/iPad; Starlight",
+            price: "Rs. 1,99,990",
+            image: "images/mac 3.jpg",
+            category: "mac"
+        },
+        {
+            name: "Apple 2022 MacBook Air Laptop with M2 chip: 34.46 cm (13.6-inch) Liquid Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera. Works with iPhone/iPad; Silver 4.6 out of 5 stars 23",
+            price: "Rs. 1,19,900",
+            image: "images/mac 4.jpg",
+            category: "mac"
+        },
+        {
+            name: "Apple 2022 MacBook Air Laptop with M2 chip: 34.46 cm (13.6-inch) Liquid Retina Display, 8GB RAM, 512GB SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera. Works with iPhone/iPad; Starlight",
+            price: "Rs. 1,49,900",
+            image: "images/mac 5.jpg",
+            category: "mac"
+        },
+        {
+            name: "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad;<br> Silver",
+            price: "Rs. 2,39,900",
+            image: "images/mac 6.jpg",
+            category: "mac"
+        }
+    ];
+    viewAllRecord();
+    function viewAllRecord() {
+        let tbl = "";
+        data.map((val) => {
+            tbl += `
+                <div class="col-md-4 pb-4">
+                    <div class="card">
+                        <img src="${val.image}" style="height:300px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">${val.name}</h5>
+                        <p class="card-text">${val.category}</p>
+                        <button class="btn btn-primary">${val.price}</button>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+    function lenovoData() {
+        let category = "lenovo";
+        let tbl = "";
+        data.map((val) => {
+            if (val.category == category) {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:300px;" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <button class="btn btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+    function lgData() {
+        let category = "lg";
+        let tbl = "";
+        data.map((val) => {
+            if (val.category == category) {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <button class="btn btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+    function dellData() {
+        let category = "dell";
+        let tbl = "";
+        data.map((val) => {
+            if (val.category == category) {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <button class="btn btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+    function hpData() {
+        let category = "hp";
+        let tbl = "";
+        data.map((val) => {
+            if (val.category == category) {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <button class="btn btn-primary">Order</buttonx  >
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+    function macData() {
+        let category = "mac";
+        let tbl = "";
+        data.map((val) => {
+            if (val.category == category) {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <button class="btn btn-primary">Order</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+</script>
